@@ -70,3 +70,80 @@ let data = new Date()
 
 console.log('A data de hoje é ' + data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear())
 
+//Crie um script em JS que receba um número inteiro do usuário, vefique e informe se o número é um quadrado perfeito.
+
+let num = parseInt(readline.question('Digite um número inteiro: '))
+let inteiro = Number.isInteger(Math.sqrt(num))
+
+if(inteiro){
+  console.log('O número é um quadrado perfeito')
+}
+else{
+  console.log('O número não é um quadrado perfeito')
+}
+
+//**2. Faça um script que simule uma calculadora simples. O usuário informa dois número e depois digita o símbolo da operação artimética a ser realizada (+, -, *, /). Por exemplo, o usuário digita 5, 6 e por fim +. O script apresenta o resultado da operação 5 + 6.**
+
+let valor1 = parseFloat(readline.question('Digite um número: '))
+let valor2 = parseFloat(readline.question('Digite outro número: '))
+let operacao = readline.question('Digite a operação: ')
+let resultado
+
+switch(operacao){
+  case '+':
+    resultado = valor1+valor2
+    break
+  case '-':
+    resultado = valor1-valor2
+    break
+  case '*':
+    resultado = valor1*valor2
+    break
+  case'/':
+    resultado = valor1/valor2
+    break
+}
+
+  console.log('O valor da operacao ' + valor1 + operacao + valor2 + ' é igual a ' + resultado)
+
+  //Faça um programa que leia 3 números e informe o maior deles.
+
+  let dev1 = parseFloat(readline.question('Digite um número: '))
+  let dev2 = parseFloat(readline.question('Digite um número: '))
+  let dev3 = parseFloat(readline.question('Digite um número: '))
+
+  if(dev3>dev2){
+      if(dev3>dev1){
+        console.log('O número 3 eh maior')
+      }
+      else{
+        console.log('O número 1 eh maior')
+      }
+    }
+  else{
+    if(dev2>dev1){
+      console.log('O número 2 eh maior')
+    }
+    else{
+      console.log('O número 1 eh maior')
+    }
+  }
+  
+  //Crie um programa que peça o peso e a altura do usuário e, em seguida, calcule o IMC. Com base no valor do IMC, informe em qual classificação a pessoa se encontra, utilizando a tabela abaixo.
+
+  if(imc<18.5){
+    console.log('Magreza')
+  }
+  else if(imc<25) {
+    console.log('Normal')
+  }
+  else if(imc<30) {
+    console.log('Sobrepeso')
+  }
+  else if(imc<40) {
+    console.log('Obesidade')
+  }
+  else{
+    console.log('Obesidade Grave')
+  }
+  

@@ -137,3 +137,21 @@ console.log(typeof(entrada))
 // alternativa C
 // alternativa B
 
+// Estruturas de repetição
+// break = sai do loop
+
+let valor = 0
+
+while (valor <= 10){
+  console.log('o número atual é ' + valor)
+  valor++
+
+}
+
+valor = 0
+
+do{
+  console.log('o número atual é ' + valor)
+  valor++
+}
+while(valor <= 10)
