@@ -210,23 +210,30 @@ function emcaixaalta(vetor){
 let vetor1 = [2,6,54,67,1,12,24]
 let vetor2 = [63,5,67,89]
 
-console.log(vetor2[4])
+console.log(somavetores(vetor2,vetor1))
 
 function somavetores(a,b){
   vetorsoma = []
   let tam1 = a.length
   let tam2 = b.length
 
+  let posicao = 0
   if(tam2<tam1){
-    for(n in a){
-      vetorsoma.push(a[n]+b[n])
+    for(posicao ; posicao < tam2; posicao++){
+      vetorsoma.push(a[posicao]+b[posicao])
+    }
+    for(posicao ; posicao < tam1; posicao++){
+      vetorsoma.push(a[posicao])
     }
   }
   
   else {
-      for(n in b){
-        vetorsoma.push(a[n]+b[n])
-      }
+    for(posicao ; posicao < tam1; posicao++){
+      vetorsoma.push(a[posicao]+b[posicao])
+    }
+    for(posicao ; posicao < tam2; posicao++){
+      vetorsoma.push(b[posicao])
+    }
   }
   return vetorsoma
 
@@ -236,8 +243,41 @@ function somavetores(a,b){
 
 // 11
 // Faça uma função que receba dois vetores e retorne o produto item a item desses vetores.
-
 // Exemplo: Se a função receber os vetores [1,4,3] e [3,5,1], então a função deve retornar [1x3, 4x5, 3x1] = [3, 20, 3].
+
+
+let vetor1 = [2,6,54,67,1,12,24]
+let vetor2 = [63,5,67,89]
+
+console.log(somavetores(vetor2,vetor1))
+
+function somavetores(a,b){
+  vetorsoma = []
+  let tam1 = a.length
+  let tam2 = b.length
+
+  let posicao = 0
+  if(tam2<tam1){
+    for(posicao ; posicao < tam2; posicao++){
+      vetorsoma.push(a[posicao]*b[posicao])
+    }
+    for(posicao ; posicao < tam1; posicao++){
+      vetorsoma.push(a[posicao])
+    }
+  }
+  
+  else {
+    for(posicao ; posicao < tam1; posicao++){
+      vetorsoma.push(a[posicao]*b[posicao])
+    }
+    for(posicao ; posicao < tam2; posicao++){
+      vetorsoma.push(b[posicao])
+    }
+  }
+  return vetorsoma
+
+}
+
 
 // 12
 // Faça uma função que recebe um número x e um vetor numérica e retorna um vetor cujos elementos são os itens do vetor de entrada multiplicado por x.
@@ -246,20 +286,224 @@ function somavetores(a,b){
 
 // Se a função receber o número 5 e o vetor [3,5,1], então a função deve retornar [5x3, 5x5, 5x1] = [15, 25, 5].
 
+let vetor1 = [2,6,54,67,1,12,24]
+let n = parseInt(readline.question('Digite um numero: '))
+if (isNaN(n)){
+  console.log('Digite um numero valido')
+}
+else{
+
+ console.log(multiplicavetor(n, vetor1))
+}
+
+function multiplicavetor(n,vetor){
+  let mult=[]
+  for (x in vetor){
+    mult.push(n*vetor[x])
+  }
+  return mult
+
+}
+
 // 13
 // Faça uma função que recebe um vetor de números e retorna a soma dos elementos desse vetor.
+
+let vetor1 = [2,6,54,67,1,12,24]
+
+
+console.log(somaelementos(vetor1))
+
+
+function somaelementos(vetor){
+  let soma = 0
+  for (x in vetor){
+    soma = soma + vetor[x]
+  }
+  return soma
+
+}
 
 // 14
 // Faça uma função que recebe um vetor de números e retorna a média aritmética dos elementos desse vetor.
 
+let vetor1 = [2,6,54,67,1,12,24]
+
+
+console.log('A media dos elementos eh ' + mediaelementos(vetor1))
+
+
+function mediaelementos(vetor){
+  let soma = 0
+  for (x in vetor){
+    soma = soma + vetor[x]
+  }
+  return (Math.ceil(soma/vetor.length))
+}
+
+
 // 15
-// Desafio 1 - Faça uma função que receba um número e calcule seu fatorial.
+// Faça uma função que recebe um número e retorna o número invertido.
+// Exemplo x = 32243;
+// Saída esperada: 34223
+
+
+let n = readline.question('Digite um numero: ')
+if (isNaN(parseInt(n))){
+  console.log('Digite um numero valido')
+}
+else{
+ console.log(invertenumero(n))
+}
+
+function invertenumero(n){
+   var invertido = ''
+   for(k in n){
+     invertido = n[k].concat(invertido)
+   }
+   return invertido
+}
+
 
 // 16
-// Super Desafio! - Repita o exercício anterior usando recursão, ou seja, uma função que chame ela mesma, lembrando que 3! = 32!, que 2! = 21!, que 1! = 1*0! e que 0! = 1.
+// Faça uma função que recebe uma string como parâmetro e converte a primeira letra de cada palavra para maiúsculo.
+
+// Exemplo: ‘the quick brown fox’
+// Saída esperada: ‘The Quick Brown Fox’
+
+let frase = readline.question('Digite uma frase: ')
+
+console.log(maiusculo(frase))
+
+function maiusculo(entrada){
+   var frasenova = ''
+   var n = 0
+   frasenova = frasenova.concat(entrada[n].toUpperCase())
+   var tamanho = entrada.length
+   n++
+
+   for (n ; n < tamanho ; n++) {
+     if(entrada[n-1] == ' '){
+      frasenova = frasenova.concat(entrada[n].toUpperCase())
+     }
+
+     else{
+      frasenova = frasenova.concat(entrada[n])
+     }
+
+    }
+
+    return frasenova
+  }
+
+
 
 // 17
-// Desafio 2 - Faça uma função que recebe duas entradas: um input dado pelo usuário e um string que informa o tipo de dado (“idade”, “salário” ou “sexo”), e verifica se os dados digitados foram válidos, usando os seguintes critérios:
+// Faça uma função que recebe um número e retorna um booleano representando se ele é primo ou não.
+
+let n = readline.question('Digite um numero: ')
+if (isNaN(parseInt(n))){
+  console.log('Digite um numero valido')
+}
+else{
+ console.log(ehprimo(n))
+}
+
+function ehprimo(n){
+
+  var resultado = true
+  var k = 2
+
+  for (k ; k < n ; k++){
+    if(n%k == 0){
+      resultado = false
+    }
+}
+  return resultado
+
+}
+
+// 18
+// Faça uma função que recebe um argumento e retorna o seu tipo de dado (number, string, etc).
+
+let algo = 2
+
+console.log('Isso eh do tipo ' + oqueeh(algo))
+
+function oqueeh(n){
+  
+  return typeof(n)
+
+}
+
+// 19
+// Faça um função que recebe um vetor de números e encontre o segundo menor e o segundo maior número, respectivamente.
+
+// Exemplo: [1,2,3,4,5]
+// Saída esperada: 2,4
+
+let vetor1 = [2, 65, 7, 41, 96, 23, 13, 12, 70, 101]
+
+console.log(segundos(vetor1))
+
+function segundos(ordenado) {
+var maior = 0
+var menor = 0
+var segmaior = 0
+var segmenor = 0
+
+for (n in ordenado){
+  if(ordenado[n] > maior){
+  segmaior = maior
+  maior = ordenado[n] 
+  }
+  else if (ordenado[n] > segmaior){
+  segmaior = ordenado[n]
+  }
+}
+
+for (n in ordenado){
+  if(ordenado[n] < menor || menor == 0 ){
+  segmenor = menor
+  menor = ordenado[n] 
+  }
+  else if (ordenado[n] < segmenor || segmenor == 0){
+  segmenor = ordenado[n] 
+  }
+}
+return [segmenor, segmaior]
+}
+
+
+// 20
+// Faça uma função que recebe um vetor numérico e um número e retorne um vetor com os elementos de maiores que esse número.
+
+let vetor1 = [2, 65, 7, 41, 96, 23, 13, 12, 70, 101]
+let n = readline.question('Digite um numero: ')
+if (isNaN(parseInt(n))){
+  console.log('Digite um numero valido')
+}
+else{
+ console.log(maiores(vetor1,n))
+}
+
+function maiores(vetor,n){
+vetormaior = []
+for (k in vetor){
+  if (vetor[k] > n){
+    vetormaior.push(vetor[k])
+  }
+}
+  return vetormaior
+}
+
+// Desafio 1 -- FEITO
+// Faça uma função que receba um número e calcule seu fatorial.
+
+// Super Desafio!
+// Repita o exercício anterior usando recursão, ou seja, uma função que chame ela mesma, lembrando que 3! = 32!, que 2! = 21!, que 1! = 1*0! e que 0! = 1.
+
+// Desafio 2 - FEITO
+// Faça uma função que recebe duas entradas: um input dado pelo usuário e um string que informa o tipo de dado (“idade”, “salário” ou “sexo”), e verifica se os dados digitados foram válidos, usando os seguintes critérios:
 
 // a. Idade: entre 0 e 150;
 
@@ -267,8 +511,8 @@ function somavetores(a,b){
 
 // c. Sexo: M, F ou Outro.
 
-// 18
-// Desafio 3 - A sequência Fibonacci é a sequência cujos dois primeiros termos são 1 e os demais são obtidos através da soma de seus dois antecessores, isso é:
+// Desafio 3
+// A sequência Fibonacci é a sequência cujos dois primeiros termos são 1 e os demais são obtidos através da soma de seus dois antecessores, isso é:
 
 // a. Fibonacci(1) = 1 e Fibonacci(2) = 2;
 
@@ -279,5 +523,53 @@ function somavetores(a,b){
 // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55…
 // Faça uma função que receba um número n e calcule o termo de número n da sequência Fibonacci.
 
-// 19
-// Super Desafio! - Refaça o desafio 3 usando recursão.
+
+let n = readline.question('Digite um numero para fibonacci: ')
+if (isNaN(parseInt(n)) || parseInt(n) <= 0 ){
+  console.log('Digite um numero valido e acima de 1')
+}
+else{
+ console.log('O fibonacce de ' + n + ' é ' + fibonacci(n))
+}
+
+function fibonacci(numero){
+  let proximo = 0
+  let atual = 1
+  let anteior = 0
+
+  for(let k = 0; k < numero ; k++){
+    proximo = atual + anterior
+    anterior = atual
+    atual = proximo
+  }
+
+    return proximo
+}
+
+
+function fibonaccirec( n ) {
+  if( n < 1 || isNaN( n ) ) return;
+  return n < 2 ? 'chirp' : chirp( n - 1 ) + '-chirp';
+}
+// Super Desafio!
+// Refaça o desafio 3 usando recursão.
+
+const readline = require('readline-sync')
+let n = readline.question('Digite um numero para fibonacci: ')
+if (isNaN(parseInt(n)) || parseInt(n) <= 0 ){
+  console.log('Digite um numero valido e acima de 1')
+}
+else{
+ console.log('O fibonacce de ' + n + ' é ' + fibonacci(n))
+}
+
+function fibonacci(numero){
+  if (numero==0){
+    return 1
+  } 
+  if (numero==-1){
+    return 0
+  }
+    return (fibonacci(numero-1) + fibonacci(numero-2))
+
+}
