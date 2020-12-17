@@ -186,3 +186,27 @@ const matrix_diagonal = matrix_soma.reduce(function(estado, atual){
 
 console.log(matrix_diagonal)
 
+
+// Questão 9
+
+const soma = (a,b) => a+b+26
+const subtracao = (a,b) => a-b
+const divisao = (a,b) => a/b
+const multiplicaco = (a,b) => a*b
+
+
+funcoes = [soma,subtracao,divisao,multiplicaco]
+
+console.log(multiplas_funcoes(5,funcoes))
+
+function multiplas_funcoes(argumento,vetor){
+  const resultado = vetor.reduce(function(estado,atual){
+    return (atual(estado,argumento))
+  },0)
+  return resultado
+}
+
+
+
+
+
